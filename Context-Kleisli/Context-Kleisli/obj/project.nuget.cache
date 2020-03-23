@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IWtUS21GdF0Nw/oDS7OR11GcvjpMLwcROZW1k67C2K5rUbciXxHmx/FuHU2lWpPjGs/j2CAjU4TDzhDrFVJtEQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tyler\\Documents\\GitHub\\Context-Kleisli\\Context-Kleisli\\Context-Kleisli\\Context-Kleisli.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tyler\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

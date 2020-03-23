@@ -1,0 +1,11 @@
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\obj\Debug\netcoreapp3.1\Context-Kleisli.AssemblyInfoInputs.cache
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\obj\Debug\netcoreapp3.1\Context-Kleisli.AssemblyInfo.fs
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context-Kleisli.deps.json
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context-Kleisli.dll
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context-Kleisli.pdb
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\obj\Debug\netcoreapp3.1\Context-Kleisli.dll
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\obj\Debug\netcoreapp3.1\Context-Kleisli.pdb
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context.dll
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context.pdb
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\bin\Debug\netcoreapp3.1\Context.xml
+C:\Users\Tyler\Documents\GitHub\Context-Kleisli\Context-Kleisli\Context-Kleisli\obj\Debug\netcoreapp3.1\Context-Kleisli.fsproj.CopyComplete

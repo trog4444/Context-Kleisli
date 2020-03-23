@@ -1,0 +1,13 @@
+﻿*** commit version 1.0.1.0
+2020-03-05
+    -- removed 'fromFunc' function.
+    -- renamed 'run<x>K' to 'runKleisli' for all types.
+    -- made ALL [Return, ReturnFrom, Zero] methods non-inlined.
+    -- began Either.
+
+2019-12-23
+    -- made lift not inline
+
+2019-12-10
+    -- created file
+    -- began [ContK, MaybeK, ReaderK, StateK]

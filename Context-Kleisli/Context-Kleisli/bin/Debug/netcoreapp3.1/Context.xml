@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Context</name></assembly>
+<members>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.Zip``2(Rogz.Context.Data.Cont.Cont{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.SelectMany``2(System.Func{`1,Rogz.Context.Data.Cont.Cont{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.SelectMany``1(System.Func{`1,Rogz.Context.Data.Cont.Cont{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.Join``2(Rogz.Context.Data.Cont.Cont{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.
+
+ Allows 'join ... on 1 equals 1'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont`2.Invoke(System.Func{`1,`0})">
+ <summary>The result of running a CPS computation with a given final continuation.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Cont.Cont`2">
+ <summary>The Continuation type represents computations in continuation-passing style (CPS).
+ In CPS, a function's result is not returned immediately, but instead is passed to another function, received as a parameter (continuation).
+ Computations are built up from sequences of nested continuations, terminated by a final continuation which produces the final result.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Cont.Cont.cont">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Cont.Cont{``1,``0},Rogz.Context.Data.Cont.Cont{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Cont.Cont{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.flatten``2(Rogz.Context.Data.Cont.Cont{``0,Rogz.Context.Data.Cont.Cont{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}},Rogz.Context.Data.Cont.Cont{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Cont.Cont{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Cont.Cont{``3,``0},Rogz.Context.Data.Cont.Cont{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.ap``3(Rogz.Context.Data.Cont.Cont{``0,``1},Rogz.Context.Data.Cont.Cont{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Cont.Cont{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.quitCC``2(``0)">
+ <summary>End the current continuation chain with a specific value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.getCC``3(``0)">
+ <summary>Allows looping with a given continuation function and input.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.withCont``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``1}},Rogz.Context.Data.Cont.Cont{``1,``2})">
+ <summary>Apply a function to transform the continuation passed to a CPS computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.mapCont``2(Microsoft.FSharp.Core.FSharpFunc{``0,``0},Rogz.Context.Data.Cont.Cont{``0,``1})">
+ <summary>Apply a function to transform the result of a continuation-passing computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.evalCont``1(Rogz.Context.Data.Cont.Cont{``0,``0})">
+ <summary>The result of running a CPS computation with the identity function as the final continuation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.runCont``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Cont.Cont{``1,``0})">
+ <summary>The result of running a CPS computation with a given final continuation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.reset``2(Rogz.Context.Data.Cont.Cont{``0,``0})">
+ <summary>'reset cont' delimits the continuation of any 'shift' inside 'cont'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.shift``2(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Cont.Cont{``1,``1}})">
+ <summary>'shift f' captures the continuation up to the nearest enclosing 'reset' and passes it to 'f'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.callCC``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}},Rogz.Context.Data.Cont.Cont{``1,``0}})">
+ <summary>'callCC' (call-with-current-continuation) calls a function with the current continuation as its argument.
+ This provides an escape continuation mechanism for use with Continuations.
+ Escape continuations allow controlled escape from the current computation to return a value immediately.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Cont.Cont.fromFunc``2(System.Func{System.Func{``0,``1},``1})">
+ <summary>Create a Continuation from the given function.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Cont.Cont.Workflow.ContBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Cont.Cont.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Cont.Cont">
+ <summary>Operations on Continuations.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Zip``2(Rogz.Context.Data.Either.Either{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.SelectMany``2(System.Func{`1,Rogz.Context.Data.Either.Either{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.SelectMany``1(System.Func{`1,Rogz.Context.Data.Either.Either{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.OrElse(Rogz.Context.Data.Either.Either{`0,`1})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Match(System.Action{`0},System.Action{`1})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate action based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the action attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Match``1(System.Func{`0,``0},System.Func{`1,``0})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate function based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Join``2(Rogz.Context.Data.Either.Either{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.
+
+ Allows 'join ... on 1 equals 1'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.FoldBack``1(``0,System.Func{`1,``0,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Fold``1(``0,System.Func{``0,`1,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.BiSelect``2(System.Func{`0,``0},System.Func{`1,``1})">
+ <summary>Map over both arguments covariantly.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.BiFoldBack``1(``0,System.Func{`0,``0,``0},System.Func{`1,``0,``0})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.BiFold``1(``0,System.Func{``0,`0,``0},System.Func{``0,`1,``0})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either`2.Append``2(Rogz.Context.Data.Either.Either{``0,``1},Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Either.Either`2">
+ <summary>A type that can represent a choice between two different types.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bimapFoldBack``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},Microsoft.FSharp.Core.FSharpFunc{``3,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``4,``1}}},``1,Rogz.Context.Data.Either.Either{``0,``3})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bimapFold``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``3,System.ValueTuple{``4,``0}}},``0,Rogz.Context.Data.Either.Either{``1,``3})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bifoldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Either.Either{``0,``2})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bifold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``2,``0}},``0,Rogz.Context.Data.Either.Either{``1,``2})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.mapFoldBack``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},``1,Rogz.Context.Data.Either.Either{``3,``0})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.mapFold``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},``0,Rogz.Context.Data.Either.Either{``3,``1})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.foldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Either.Either{``2,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.fold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},``0,Rogz.Context.Data.Either.Either{``2,``1})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.append``2(Rogz.Context.Data.Either.Either{``0,``1},Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Either.Either.either">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Either.Either{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Either.Either{``1,``0},Rogz.Context.Data.Either.Either{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Either.Either{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Either.Either{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.flatten``2(Rogz.Context.Data.Either.Either{``0,Rogz.Context.Data.Either.Either{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Either.Either{``1,``2}},Rogz.Context.Data.Either.Either{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.orElseWith``2(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Rogz.Context.Data.Either.Either{``0,``1}},Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.orElse``2(Rogz.Context.Data.Either.Either{``0,``1},Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Either.Either{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Either.Either{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Either.Either{``3,``0},Rogz.Context.Data.Either.Either{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.ap``3(Rogz.Context.Data.Either.Either{``0,``1},Rogz.Context.Data.Either.Either{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.mapFirst``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Either.Either{``0,``2})">
+ <summary>Map over the first value, leaving the second value as-is.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.bimap``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Data.Either.Either{``0,``2})">
+ <summary>Map over both arguments covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Either.Either{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.partition``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Either.Either{``0,``1}})">
+ <summary>Partitions a sequence of Eithers into a 'Left'-sequence and a 'Right'-sequence.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.lefts``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Either.Either{``0,``1}})">
+ <summary>Returns all values held within 'Left'-values, and removes all others.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.rights``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Either.Either{``0,``1}})">
+ <summary>Returns all values held within 'Right'-values, and removes all others.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.isRight``2(Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>Returns true if the value is a 'Right'; false otherwise.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.isLeft``2(Rogz.Context.Data.Either.Either{``0,``1})">
+ <summary>Returns true if the value is a 'Left'; false otherwise.</summary>    
+</member>
+<member name="M:Rogz.Context.Data.Either.Either.caseof``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``1},Rogz.Context.Data.Either.Either{``0,``2})">
+ <summary>Acts as an inline pattern-match on a union-type, calling the appropriate function based on the case.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Either.Either.Workflow.EitherBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Either.Either.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Either.Either">
+ <summary>Operations on Eithers.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Zip``2(Rogz.Context.Data.Maybe.Maybe{``0},System.Func{`0,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Where(System.Func{`0,System.Boolean})">
+ <summary>Generalizes the sequence-based 'filter' function.
+
+ Allows 'where'-clauses in query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.SelectMany``2(System.Func{`0,Rogz.Context.Data.Maybe.Maybe{``0}},System.Func{`0,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.SelectMany``1(System.Func{`0,Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Select``1(System.Func{`0,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.OrElse(Rogz.Context.Data.Maybe.Maybe{`0})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Match(System.Action,System.Action{`0})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate action based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the action attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Match``1(System.Func{``0},System.Func{`0,``0})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate function based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Join``3(Rogz.Context.Data.Maybe.Maybe{``0},System.Func{`0,``1},System.Func{``0,``1},System.Func{`0,``0,``2})">
+ <summary>Lift a binary function onto contexts, or return a 'failure' value if the key-functions don't equate.
+
+ Allows 'join ... on x equals b'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.GroupJoin``3(Rogz.Context.Data.Maybe.Maybe{``0},System.Func{`0,``1},System.Func{``0,``1},System.Func{`0,Rogz.Context.Data.Maybe.Maybe{``0},``2})">
+ <summary>Acts similar to a SQL 'inner join', combining elements of each given monad when the elements satisfy a predicate.
+
+ Allows 'join ... into ...'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.GroupJoin``2(Rogz.Context.Data.Maybe.Maybe{``0},System.Func{`0,``0,System.Boolean},System.Func{`0,``0,``1})">
+ <summary>Acts similar to a SQL 'inner join', combining elements of each given monad when the elements satisfy a predicate.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.FoldBack``1(``0,System.Func{`0,``0,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Fold``1(``0,System.Func{``0,`0,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Empty``1">
+ <summary>The identity element of the 'append' operation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe`1.Append``1(Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Maybe.Maybe`1">
+ <summary>The type of optional value. 'Just a' represents a value 'a',
+ while 'Nothing' represents cases such as when a value does not exist or can't be reached.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.mapFoldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},``1,Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.mapFold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},``0,Rogz.Context.Data.Maybe.Maybe{``1})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.foldBack``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.fold``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},``0,Rogz.Context.Data.Maybe.Maybe{``1})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.repeat``1(System.Int32,Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>'Repeat' a value a specified number of times by 'appending' it to itself.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.mconcat``1(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Generalizes the 'concat' operation on sequences to monoids.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.empty``1">
+ <summary>The identity element of the 'append' operation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.append``1(Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.filter``1(Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Generalizes the sequence-based 'filter' function.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.join``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.Boolean}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``1})">
+ <summary>Acts similar to a SQL 'inner join', combining elements of each given monad when the elements satisfy a predicate.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.guard(System.Boolean)">
+ <summary>If the condition is true, do 'nothing', otherwise 'choose/fail' in the context of the monad.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Maybe.Maybe.maybe">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.fixM``2(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``1}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.flatten``1(Rogz.Context.Data.Maybe.Maybe{Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.bind``2(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.concat``1(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Generalizes the sequence-based 'concat' function.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.orElseWith``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Rogz.Context.Data.Maybe.Maybe{``0}},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.orElse``1(Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>A monoidal, associative binary operation representing choice/failure.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.traverse``2(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.sequence``1(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.map2``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.ap``2(Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{Microsoft.FSharp.Core.FSharpFunc{``0,``1}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.unit``1(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.toNullable``1(Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Convert a Maybe to a Nullable.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.ofNullable``1(System.Nullable{``0})">
+ <summary>Convert a Nullable to a Maybe.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.ofObj``1(``0)">
+ <summary>Returns Nothing if the given object is null, otherwise returns the object wrapped in a 'Just'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.mapMaybes``2(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map a 'Maybe'-producing function across a sequence and return only the 'Just'-values.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.justs``1(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Maybe.Maybe{``0}})">
+ <summary>Returns all values held within 'Just'-values, and removes all others.</summary>
+ <exception cref="ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.isNothing``1(Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Returns true if the value is a 'Nothing'; false otherwise.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.isJust``1(Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Returns true if the value is a 'Just'; false otherwise.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Maybe.Maybe.caseof``2(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``0},Microsoft.FSharp.Core.FSharpFunc{``1,``0},Rogz.Context.Data.Maybe.Maybe{``1})">
+ <summary>Acts as an inline pattern-match on a union-type, calling the appropriate function based on the case.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Maybe.Maybe.Workflow.MaybeBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Maybe.Maybe.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Maybe.Maybe">
+ <summary>Operations on Maybe</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.Zip``2(Rogz.Context.Data.Reader.Reader{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.SelectMany``2(System.Func{`1,Rogz.Context.Data.Reader.Reader{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.SelectMany``1(System.Func{`1,Rogz.Context.Data.Reader.Reader{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.Join``2(Rogz.Context.Data.Reader.Reader{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.
+
+ Allows 'join ... on 1 equals 1'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.Invoke(`0)">
+ <summary>The result of running a CPS computation with a given final continuation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.DiSelect``2(System.Func{``0,`0},System.Func{`1,``1})">
+ <summary>Map over both arguments at the same time,
+ the first (i.e. 'left') contravariantly
+ and the second (i.e. 'right') covariantly.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader`2.Append``2(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Reader.Reader`2">
+ <summary>Represents one or more computations that share an input 'environment'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.fanin``3(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``2,``1})">
+ <summary>Split the input between the two argument arrows and merge their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.merge``4(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``2,``3})">
+ <summary>Split the input between the two argument arrows, retagging and merging their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.feedr``3(Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feed1'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.feedl``3(Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feed2'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.fanout``3(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``0,``2})">
+ <summary>Fanout: send the input to both argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.split``4(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``2,``3})">
+ <summary>Split the input between the two argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.second``3(Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Send the second component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.first``3(Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.arr``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Lift a function to an arrow.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.compose``3(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``2,``0})">
+ <summary>Compose two members of a category together.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.identity``1">
+ <summary>Identity element of a category.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.append``2(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Reader.Reader.reader">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Reader.Reader{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Reader.Reader{``1,``0},Rogz.Context.Data.Reader.Reader{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Reader.Reader{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Reader.Reader{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.flatten``2(Rogz.Context.Data.Reader.Reader{``0,Rogz.Context.Data.Reader.Reader{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Reader.Reader{``1,``2}},Rogz.Context.Data.Reader.Reader{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Reader.Reader{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Reader.Reader{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Reader.Reader{``3,``0},Rogz.Context.Data.Reader.Reader{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.ap``3(Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.mapl``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Reader.Reader{``1,``2})">
+ <summary>Map the first (i.e. 'left') argument contravariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.dimap``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Data.Reader.Reader{``1,``2})">
+ <summary>Map over both arguments at the same time, the first (i.e. 'left') contravariantly and the second (i.e. 'right') covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Reader.Reader{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.runReader``2(``0,Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Execute the given function with the supplied environment.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.local``2(Microsoft.FSharp.Core.FSharpFunc{``0,``0},Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Executes a computation in a modified environment.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.ask``1">
+ <summary>Retreive the current environment.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Reader.Reader.fromFunc``2(System.Func{``0,``1})">
+ <summary>Create a Reader from the given function.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Reader.Reader.Workflow.ReaderBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Reader.Reader.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Reader.Reader">
+ <summary>Operations on Readers.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS`4.Select``1(System.Func{`3,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS`4.Invoke(`0,`1)">
+ <summary>Execute the given computation.</summary>
+</member>
+<member name="T:Rogz.Context.Data.RWS.RWS`4">
+ <summary>A computation taking an environment and an initial state
+ which produceds a new state, a 'log', and a value.</summary>
+</member>
+<member name="T:Rogz.Context.Data.RWS.RWSResult`3">
+ <summary>The result of an 'RWS' computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.append``4(Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3},Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="P:Rogz.Context.Data.RWS.RWS.rws">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.fixM``5(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.RWS.RWS{``1,``2,``3,``4}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.RWS.RWS{``1,``2,``3,``0},Rogz.Context.Data.RWS.RWS{``1,``2,``3,``4}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.RWS.RWS{``1,``2,``3,``4}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.RWS.RWS{``1,``2,``3,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.flatten``4(Rogz.Context.Data.RWS.RWS{``0,``1,``2,Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.bind``5(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.RWS.RWS{``1,``2,``3,``4}},Rogz.Context.Data.RWS.RWS{``1,``2,``3,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.bimap2``8(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``3,Microsoft.FSharp.Core.FSharpFunc{``4,``5}},Rogz.Context.Data.RWS.RWS{``6,``7,``0,``3},Rogz.Context.Data.RWS.RWS{``6,``7,``1,``4})">
+ <summary>Lift two binary functions onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.biunit``4(``0,``1)">
+ <summary>Lift two values into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.traverse``5(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.RWS.RWS{``1,``2,``3,``4}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.sequence``4(System.Collections.Generic.IEnumerable{Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.map2``6(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.RWS.RWS{``3,``4,``5,``0},Rogz.Context.Data.RWS.RWS{``3,``4,``5,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.ap``5(Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3},Rogz.Context.Data.RWS.RWS{``0,``1,``2,Microsoft.FSharp.Core.FSharpFunc{``3,``4}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.unit``4(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.mapFirst``5(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.RWS.RWS{``2,``3,``0,``4})">
+ <summary>Map over the first value, leaving the second value as-is.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.bimap``6(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Data.RWS.RWS{``4,``5,``0,``2})">
+ <summary>Map over both arguments covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.map``5(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.RWS.RWS{``2,``3,``4,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.withRWS``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},Rogz.Context.Data.RWS.RWS{``2,``1,``3,``4})">
+ <summary>Executes a computation on an environment and state modified by 'f'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.mapRWS``6(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.RWS.RWSResult{``0,``1,``2},Rogz.Context.Data.RWS.RWSResult{``0,``3,``4}},Rogz.Context.Data.RWS.RWS{``5,``0,``1,``2})">
+ <summary>Map the return log, value, and final state of a computation using the given function.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.runRWS``4(``0,``1,Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3})">
+ <summary>Execute the given function with the supplied environment and initial state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.gets``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Gets specific component of the state, using a projection function supplied.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.modify``3(Microsoft.FSharp.Core.FSharpFunc{``0,``0})">
+ <summary>Maps an old state to a new state, discarding the old state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.put``3(``0)">
+ <summary>Ignore the current state and put a new state into a computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.get``3">
+ <summary>Return the current state as a value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.listens``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.RWS.RWS{``3,``4,``0,``1})">
+ <summary>Applies a function to the accumulator then attaches the result to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.listen``4(Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3})">
+ <summary>Attaches the accumulated value to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.tell``3(``0)">
+ <summary>Insert a 'record' into the accumulation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.local``4(Microsoft.FSharp.Core.FSharpFunc{``0,``0},Rogz.Context.Data.RWS.RWS{``0,``1,``2,``3})">
+ <summary>Executes a computation in a modified environment.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.asks``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Gets specific component of the environment, using a projection function supplied.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.ask``3">
+ <summary>Retreive the current environment.</summary>
+</member>
+<member name="M:Rogz.Context.Data.RWS.RWS.fromFunc``4(System.Func{``0,``1,Rogz.Context.Data.RWS.RWSResult{``1,``2,``3}})">
+ <summary>Create a RWS from the given function.</summary>
+</member>
+<member name="T:Rogz.Context.Data.RWS.RWS.Workflow.RWSBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.RWS.RWS.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.RWS.RWS">
+ <summary>Operations on RWSs.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.Zip``2(Rogz.Context.Data.State.State{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.SelectMany``2(System.Func{`1,Rogz.Context.Data.State.State{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.SelectMany``1(System.Func{`1,Rogz.Context.Data.State.State{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.Join``2(Rogz.Context.Data.State.State{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.
+
+ Allows 'join ... on 1 equals 1'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State`2.Invoke(`0)">
+ <summary>Execute the given stateful computation.</summary>
+</member>
+<member name="T:Rogz.Context.Data.State.State`2">
+ <summary>Represents a 'stateful'-computation, threading each new state as an argument in a resultant state-value pair.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.SVPair`2.With(`1)">
+ <summary>Modify a state-value pair with a new value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.SVPair`2.With(`0)">
+ <summary>Modify a state-value pair with a new state.</summary>
+</member>
+<member name="T:Rogz.Context.Data.State.SVPair`2">
+ <summary>Represents a state-value pair.</summary>
+</member>
+<member name="P:Rogz.Context.Data.State.State.state">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.State.State{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.State.State{``1,``0},Rogz.Context.Data.State.State{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.State.State{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.State.State{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.flatten``2(Rogz.Context.Data.State.State{``0,Rogz.Context.Data.State.State{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.State.State{``1,``2}},Rogz.Context.Data.State.State{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.State.State{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.State.State{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.State.State.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.State.State{``3,``0},Rogz.Context.Data.State.State{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.ap``3(Rogz.Context.Data.State.State{``0,``1},Rogz.Context.Data.State.State{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.State.State{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.withState``2(Microsoft.FSharp.Core.FSharpFunc{``0,``0},Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Executes a stateful computation on a state modified by 'f'.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.mapState``3(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.State.SVPair{``0,``1},Rogz.Context.Data.State.SVPair{``0,``2}},Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Map both the return value and final state of a computation using the given function.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.execState``2(``0,Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Evaluate a state computation with the given initial state and return the final state, discarding the final value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.evalState``2(``0,Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Evaluate a state computation with the given initial state and return the final value, discarding the final state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.runState``2(``0,Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Execute the given stateful computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.gets``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Gets specific component of the state, using a projection function supplied.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.modify``1(Microsoft.FSharp.Core.FSharpFunc{``0,``0})">
+ <summary>Maps an old state to a new state, discarding the old state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.put``1(``0)">
+ <summary>Ignore the current state and put a new state into a computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.get``1">
+ <summary>Return the current state as a value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.State.State.fromFunc``2(System.Func{``0,Rogz.Context.Data.State.SVPair{``0,``1}})">
+ <summary>Create a State from the given function.</summary>
+</member>
+<member name="T:Rogz.Context.Data.State.State.Workflow.StateBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.State.State.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.State.State">
+ <summary>Operations on States.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Tagged.Tagged`2.Value">
+ <summary>Return the underlying value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Zip``2(Rogz.Context.Data.Tagged.Tagged{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.SelectMany``2(System.Func{`1,Rogz.Context.Data.Tagged.Tagged{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows nested 'from'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.SelectMany``1(System.Func{`1,Rogz.Context.Data.Tagged.Tagged{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Match(System.Action{`1})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate action based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the action attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Match``1(System.Func{`1,``0})">
+ <summary>Acts as a pattern-match on a union-type, calling the appropriate function based on the case.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Join``2(Rogz.Context.Data.Tagged.Tagged{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.
+
+ Allows 'join ... on 1 equals 1'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.FoldBack``1(``0,System.Func{`1,``0,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Fold``1(``0,System.Func{``0,`1,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.ContinueWith``1(System.Func{Rogz.Context.Data.Tagged.Tagged{`0,`1},``0})">
+ <summary>Sequentially compose two co-contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged`2.Append``2(Rogz.Context.Data.Tagged.Tagged{``0,``1},Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Tagged.Tagged`2">
+ <summary>Represents a type that is 'tagged' with extra type information,
+ which is not used in actual calculations.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.mapFoldBack``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},``1,Rogz.Context.Data.Tagged.Tagged{``3,``0})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.mapFold``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},``0,Rogz.Context.Data.Tagged.Tagged{``3,``1})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.foldr``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``1},``1}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``1},Rogz.Context.Data.Tagged.Tagged{``2,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation. The accumulator is a thunk that is only called as needed by the folding function.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.foldl``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``0},Microsoft.FSharp.Core.FSharpFunc{``1,``0}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``0},Rogz.Context.Data.Tagged.Tagged{``2,``1})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation. The accumulator is a thunk that is only called as needed by the folding function.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.foldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Tagged.Tagged{``2,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.fold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},``0,Rogz.Context.Data.Tagged.Tagged{``2,``1})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.append``2(Rogz.Context.Data.Tagged.Tagged{``0,``1},Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.duplicate``2(Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>Adds a layer of co-context onto an existing co-context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.extend``3(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Tagged.Tagged{``0,``1},``2},Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>Sequentially compose two co-contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.extract``2(Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>Retrieve a value from a co-context.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Tagged.Tagged.tag">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Tagged.Tagged{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Tagged.Tagged{``1,``0},Rogz.Context.Data.Tagged.Tagged{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Tagged.Tagged{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Tagged.Tagged{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.flatten``2(Rogz.Context.Data.Tagged.Tagged{``0,Rogz.Context.Data.Tagged.Tagged{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Tagged.Tagged{``1,``2}},Rogz.Context.Data.Tagged.Tagged{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Tagged.Tagged{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Tagged.Tagged{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Tagged.Tagged{``3,``0},Rogz.Context.Data.Tagged.Tagged{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.ap``3(Rogz.Context.Data.Tagged.Tagged{``0,``1},Rogz.Context.Data.Tagged.Tagged{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.mapFirst``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Tagged.Tagged{``0,``2})">
+ <summary>Map over the first value, leaving the second value as-is.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.bimap``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Data.Tagged.Tagged{``0,``2})">
+ <summary>Map over both arguments covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Tagged.Tagged{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.tagSelf``1(``0)">
+ <summary>Apply a a value's own type as a tag.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.tagOf``2(Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>Generate a System.Type representing the type of the given proxy's tag.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.taggedBy``3(Rogz.Context.Data.Tagged.Tagged{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``0,``2},``0)">
+ <summary>Restrict the type of the supplied function such that its input matches the tag of the `proxy`.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.unproxy``2(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Tagged.Tagged{``0,Microsoft.FSharp.Core.Unit},``1})">
+ <summary>Takes a representation of a proxy to a Tagged value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.proxy``1">
+ <summary>Provides type information, even though there is no value of that type.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.retag``3(Rogz.Context.Data.Tagged.Tagged{``0,``2})">
+ <summary>Reset the tag to a new type.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.withtag``2(``1)">
+ <summary>Apply a tag to a value.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Tagged.Tagged.untag``2(Rogz.Context.Data.Tagged.Tagged{``0,``1})">
+ <summary>Return the underlying value.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Tagged.Tagged.Workflow.AttrBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Tagged.Tagged.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Tagged.Tagged">
+ <summary>Operations on Tagged values.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.
+
+ Allows 'select'-clauses query expressions.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.FoldBack``1(``0,System.Func{`1,``0,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.Fold``1(``0,System.Func{``0,`1,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.BiSelect``2(System.Func{`0,``0},System.Func{`1,``1})">
+ <summary>Map over both arguments covariantly.</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.BiFoldBack``1(``0,System.Func{`0,``0,``0},System.Func{`1,``0,``0})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer`2.BiFold``1(``0,System.Func{``0,`0,``0},System.Func{``0,`1,``0})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+ <exception cref="ArgumentNullException">Thrown when the function attempting to be called is null.</exception>
+</member>
+<member name="T:Rogz.Context.Data.Writer.Writer`2">
+ <summary>Adds an 'accumulation' value to another value,
+ threading the accumulation through sequential computations.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bimapFoldBack``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},Microsoft.FSharp.Core.FSharpFunc{``3,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``4,``1}}},``1,Rogz.Context.Data.Writer.Writer{``0,``3})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bimapFold``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``3,System.ValueTuple{``4,``0}}},``0,Rogz.Context.Data.Writer.Writer{``1,``3})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bifoldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Writer.Writer{``0,``2})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bifold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``2,``0}},``0,Rogz.Context.Data.Writer.Writer{``1,``2})">
+ <summary>Applies a function to all element(s) of two possible sources, threading an accumulator argument through the computation(s).</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.mapFoldBack``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``1}}},``1,Rogz.Context.Data.Writer.Writer{``3,``0})">
+ <summary>Combines the functionality of map and foldBack, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.mapFold``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,System.ValueTuple{``2,``0}}},``0,Rogz.Context.Data.Writer.Writer{``3,``1})">
+ <summary>Combines the functionality of map and fold, returning the pair of the final context-value and state.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.foldBack``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},``1,Rogz.Context.Data.Writer.Writer{``2,``0})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.fold``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``0}},``0,Rogz.Context.Data.Writer.Writer{``2,``1})">
+ <summary>Applies a function to all element(s) of the source, threading an accumulator argument through the computation.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.append``2(Rogz.Context.Data.Writer.Writer{``0,``1},Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>An associative binary operation on contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.duplicate``2(Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Adds a layer of co-context onto an existing co-context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.extend``3(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Writer.Writer{``0,``1},``2},Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Sequentially compose two co-contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.extract``2(Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Retrieve a value from a co-context.</summary>
+</member>
+<member name="P:Rogz.Context.Data.Writer.Writer.writer">
+ <summary>Computation expression instance for the given context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.fixM``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Writer.Writer{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Writer.Writer{``1,``0},Rogz.Context.Data.Writer.Writer{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Writer.Writer{``1,``2}}}},Microsoft.FSharp.Core.FSharpChoice{``0,Rogz.Context.Data.Writer.Writer{``1,``0}})">
+ <summary>Recursively generate a monadic context using up to two continuation functions to produce different effects.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.flatten``2(Rogz.Context.Data.Writer.Writer{``0,Rogz.Context.Data.Writer.Writer{``0,``1}})">
+ <summary>Removes one level of context structure, projecting its bound argument into the outer level.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Writer.Writer{``1,``2}},Rogz.Context.Data.Writer.Writer{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bimap2``6(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Microsoft.FSharp.Core.FSharpFunc{``3,Microsoft.FSharp.Core.FSharpFunc{``4,``5}},Rogz.Context.Data.Writer.Writer{``0,``3},Rogz.Context.Data.Writer.Writer{``1,``4})">
+ <summary>Lift two binary functions onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.biunit``2(``0,``1)">
+ <summary>Lift two values into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.traverse``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Writer.Writer{``1,``2}},System.Collections.Generic.IEnumerable{``0})">
+ <summary>Map each element of a sequence to a context, evaluate these contexts from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.sequence``2(System.Collections.Generic.IEnumerable{Rogz.Context.Data.Writer.Writer{``0,``1}})">
+ <summary>Evaluate each context in a sequence from left to right, and collect the results.</summary>
+ <exception cref="System.ArgumentNullException">Thrown when the input sequence is null.</exception>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Writer.Writer{``3,``0},Rogz.Context.Data.Writer.Writer{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.ap``3(Rogz.Context.Data.Writer.Writer{``0,``1},Rogz.Context.Data.Writer.Writer{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+ <summary>Sequential application of functions stored within contexts onto values stored within similar contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.mapFirst``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Writer.Writer{``0,``2})">
+ <summary>Map over the first value, leaving the second value as-is.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.bimap``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Data.Writer.Writer{``0,``2})">
+ <summary>Map over both arguments covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Data.Writer.Writer{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.runWriter``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Apply a function to both the accumulation and the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.listens``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Applies a function to the accumulator then attaches the result to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.listen``2(Rogz.Context.Data.Writer.Writer{``0,``1})">
+ <summary>Attaches the accumulated value to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Data.Writer.Writer.tell``1(``0)">
+ <summary>Insert a 'record' into the accumulation.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Writer.Writer.Workflow.WriterBuilder">
+ <summary>Computation expression for the given monadic context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Writer.Writer.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Data.Writer.Writer">
+ <summary>Operations on Writers.</summary>
+</member>
+</members>
+</doc>

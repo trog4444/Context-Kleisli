@@ -1,0 +1,28 @@
+﻿What to implement for all Contexts:
+
+    Methods: [Invoke, Select, Zip, Join=Zip, SelectManyx2]
+
+    Functions:
+        [runKleisli,
+        ,map
+        ,dimap, mapl
+        ,unit, map2
+        ,bind, 'X'KBuilder-type{Return, ReturnFrom, Bind, Zero()}, 'x'K
+        ,lift, hoist, mapM, bindM
+        ,identity, compose
+        ,arr, first, second, split, fanout
+        ,feedl, feedr, merge, fanin]
+    ^* [Function, Functor, Profunctor, Applicative, Monad, Kleisli, Category, Arrow, ArrowChoice]
+
+
+    !! Do not include anything else.
+
+
+Questions:
+
+    1) can/should some functions be generalized using member constraints?
+        -- eg(s):
+            bindM f m = static.FromFunc (fun x -> member.SelectMany(m, (fun a -> member.Invoke(f a, x))))
+            arr f = static.FromFunc (fun x -> static.Unit (f x))
+
+    2) should sln be renamed from Kleisli to Monad?

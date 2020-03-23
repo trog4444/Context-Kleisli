@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Context_Kleisli</RootNamespace>
+    <Authors>rogz</Authors>
+    <Company>rogz</Company>
+    <Product>Context-Kleisli</Product>
+    <Description>'Contexts' extended into the Kleisli category.</Description>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp3.1\Context-Kleisli.XML</DocumentationFile>
+    <WarningLevel>3</WarningLevel>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Revisions.txt" />
+    <None Include="Notes.txt" />
+    <Compile Include="Contexts\Cont.fsi" />
+    <Compile Include="Contexts\Cont.fs" />
+    <Compile Include="Contexts\Either.fs" />
+    <Compile Include="Contexts\Maybe.fsi" />
+    <Compile Include="Contexts\Maybe.fs" />
+    <Compile Include="Contexts\Reader.fsi" />
+    <Compile Include="Contexts\Reader.fs" />
+    <Compile Include="Contexts\State.fsi" />
+    <Compile Include="Contexts\State.fs" />
+    <None Include="Test.fsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Context">
+      <HintPath>..\..\..\Context=Source\Context\Context\bin\Release\netcoreapp3.1\Context.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

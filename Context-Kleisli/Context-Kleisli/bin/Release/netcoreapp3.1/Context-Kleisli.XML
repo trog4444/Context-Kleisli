@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Context-Kleisli</name></assembly>
+<members>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.Zip``2(Rogz.Context.Kleisli.Cont.ContK{`0,`1,``0},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.SelectMany``2(System.Func{`2,Rogz.Context.Kleisli.Cont.ContK{`0,`1,``0}},System.Func{`2,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.SelectMany``1(System.Func{`2,Rogz.Context.Kleisli.Cont.ContK{`0,`1,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.Select``1(System.Func{`2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.Join``2(Rogz.Context.Kleisli.Cont.ContK{`0,`1,``0},System.Func{`2,System.Int32},System.Func{``0,System.Int32},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK`3.Invoke(`1)">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Cont.ContK`3">
+ <summary>The Cont type lifted into Kleisli computations.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.fanin``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2},Rogz.Context.Kleisli.Cont.ContK{``0,``3,``2})">
+ <summary>Split the input between the two argument arrows and merge their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.merge``5(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2},Rogz.Context.Kleisli.Cont.ContK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows, retagging and merging their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.feedr``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedl'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.feedl``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedr'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.fanout``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2},Rogz.Context.Kleisli.Cont.ContK{``0,``1,``3})">
+ <summary>Fanout: send the input to both argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.split``5(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2},Rogz.Context.Kleisli.Cont.ContK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.second``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2})">
+ <summary>Send the second component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.first``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2})">
+ <summary>Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.arr``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Lift a function to an arrow.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.compose``4(Rogz.Context.Kleisli.Cont.ContK{``0,``1,``2},Rogz.Context.Kleisli.Cont.ContK{``0,``3,``1})">
+ <summary>Compose two members of a category together.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.identity``2">
+ <summary>Identity element of a category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.bindM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Cont.ContK{``1,``2,``3}},Rogz.Context.Data.Cont.Cont{``1,``0})">
+ <summary>Acts as a monadic bind on the Kleisli type using the value(s) from the underlying monad.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.mapM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Cont.Cont{``1,``2}},Rogz.Context.Kleisli.Cont.ContK{``1,``3,``0})">
+ <summary>Map a monad producing function across an existing monad in its own Kleisli category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.hoist``4(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Cont.Cont{``0,``1},Rogz.Context.Data.Cont.Cont{``0,``2}},Rogz.Context.Kleisli.Cont.ContK{``0,``3,``1})">
+ <summary>Lift a monad momorphism of the base monad into its Kleisli form.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.lift``3(Rogz.Context.Data.Cont.Cont{``0,``1})">
+ <summary>Lift a value of the underlying monad into its Kleisli form.</summary>
+</member>
+<member name="P:Rogz.Context.Kleisli.Cont.ContK.contK">
+ <summary>Computation expression instance for the given type.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.bind``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Cont.ContK{``1,``2,``3}},Rogz.Context.Kleisli.Cont.ContK{``1,``2,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.map2``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Kleisli.Cont.ContK{``3,``4,``0},Rogz.Context.Kleisli.Cont.ContK{``3,``4,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.unit``3(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.mapl``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Cont.ContK{``2,``1,``3})">
+ <summary>Map the first (i.e. 'left') argument contravariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.dimap``5(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Kleisli.Cont.ContK{``4,``1,``2})">
+ <summary>Map over both arguments at the same time, the first (i.e. 'left') contravariantly and the second (i.e. 'right') covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.map``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Cont.ContK{``2,``3,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Cont.ContK.runKleisli``3(``0,Rogz.Context.Kleisli.Cont.ContK{``1,``0,``2})">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Cont.ContK.Workflow.ContKBuilder">
+ <summary>Computation expression for the given monadic type.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Cont.ContK.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Cont.ContK">
+ <summary>Operations on ContK's.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.Zip``2(Rogz.Context.Kleisli.Maybe.MaybeK{`0,``0},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.SelectMany``2(System.Func{`1,Rogz.Context.Kleisli.Maybe.MaybeK{`0,``0}},System.Func{`1,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.SelectMany``1(System.Func{`1,Rogz.Context.Kleisli.Maybe.MaybeK{`0,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.Select``1(System.Func{`1,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.Join``2(Rogz.Context.Kleisli.Maybe.MaybeK{`0,``0},System.Func{`1,System.Int32},System.Func{``0,System.Int32},System.Func{`1,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK`2.Invoke(`0)">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Maybe.MaybeK`2">
+ <summary>The Maybe type lifted into Kleisli computations.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.fanin``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``1})">
+ <summary>Split the input between the two argument arrows and merge their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.merge``4(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``3})">
+ <summary>Split the input between the two argument arrows, retagging and merging their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.feedr``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedl'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.feedl``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedr'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.fanout``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``0,``2})">
+ <summary>Fanout: send the input to both argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.split``4(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``3})">
+ <summary>Split the input between the two argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.second``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1})">
+ <summary>Send the second component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.first``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1})">
+ <summary>Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.arr``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Lift a function to an arrow.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.compose``3(Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``0})">
+ <summary>Compose two members of a category together.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.identity``1">
+ <summary>Identity element of a category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.bindM``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Maybe.MaybeK{``1,``2}},Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Acts as a monadic bind on the Kleisli type using the value(s) from the underlying monad.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.mapM``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Maybe.Maybe{``1}},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``0})">
+ <summary>Map a monad producing function across an existing monad in its own Kleisli category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.hoist``3(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Maybe.Maybe{``0},Rogz.Context.Data.Maybe.Maybe{``1}},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``0})">
+ <summary>Lift a monad momorphism of the base monad into its Kleisli form.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.lift``2(Rogz.Context.Data.Maybe.Maybe{``0})">
+ <summary>Lift a value of the underlying monad into its Kleisli form.</summary>
+</member>
+<member name="P:Rogz.Context.Kleisli.Maybe.MaybeK.maybeK">
+ <summary>Computation expression instance for the given type.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.bind``3(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Maybe.MaybeK{``1,``2}},Rogz.Context.Kleisli.Maybe.MaybeK{``1,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.map2``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Kleisli.Maybe.MaybeK{``3,``0},Rogz.Context.Kleisli.Maybe.MaybeK{``3,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.unit``2(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.mapl``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``1,``2})">
+ <summary>Map the first (i.e. 'left') argument contravariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.dimap``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Kleisli.Maybe.MaybeK{``1,``2})">
+ <summary>Map over both arguments at the same time, the first (i.e. 'left') contravariantly and the second (i.e. 'right') covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.map``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Maybe.MaybeK{``2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Maybe.MaybeK.runKleisli``2(``0,Rogz.Context.Kleisli.Maybe.MaybeK{``0,``1})">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Maybe.MaybeK.Workflow.MaybeKBuilder">
+ <summary>Computation expression for the given monadic type.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Maybe.MaybeK.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Maybe.MaybeK">
+ <summary>Operations on MaybeK's.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.Zip``2(Rogz.Context.Kleisli.Reader.ReaderK{`0,`1,``0},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.SelectMany``2(System.Func{`2,Rogz.Context.Kleisli.Reader.ReaderK{`0,`1,``0}},System.Func{`2,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.SelectMany``1(System.Func{`2,Rogz.Context.Kleisli.Reader.ReaderK{`0,`1,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.Select``1(System.Func{`2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.Join``2(Rogz.Context.Kleisli.Reader.ReaderK{`0,`1,``0},System.Func{`2,System.Int32},System.Func{``0,System.Int32},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK`3.Invoke(`1)">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Reader.ReaderK`3">
+ <summary>The Reader type lifted into Kleisli computations.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.fanin``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2},Rogz.Context.Kleisli.Reader.ReaderK{``0,``3,``2})">
+ <summary>Split the input between the two argument arrows and merge their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.merge``5(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2},Rogz.Context.Kleisli.Reader.ReaderK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows, retagging and merging their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.feedr``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedl'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.feedl``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedr'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.fanout``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2},Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``3})">
+ <summary>Fanout: send the input to both argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.split``5(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2},Rogz.Context.Kleisli.Reader.ReaderK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.second``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2})">
+ <summary>Send the second component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.first``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2})">
+ <summary>Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.arr``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Lift a function to an arrow.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.compose``4(Rogz.Context.Kleisli.Reader.ReaderK{``0,``1,``2},Rogz.Context.Kleisli.Reader.ReaderK{``0,``3,``1})">
+ <summary>Compose two members of a category together.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.identity``2">
+ <summary>Identity element of a category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.bindM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Reader.ReaderK{``1,``2,``3}},Rogz.Context.Data.Reader.Reader{``1,``0})">
+ <summary>Acts as a monadic bind on the Kleisli type using the value(s) from the underlying monad.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.mapM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.Reader.Reader{``1,``2}},Rogz.Context.Kleisli.Reader.ReaderK{``1,``3,``0})">
+ <summary>Map a monad producing function across an existing monad in its own Kleisli category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.hoist``4(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.Reader.Reader{``0,``1},Rogz.Context.Data.Reader.Reader{``0,``2}},Rogz.Context.Kleisli.Reader.ReaderK{``0,``3,``1})">
+ <summary>Lift a monad momorphism of the base monad into its Kleisli form.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.lift``3(Rogz.Context.Data.Reader.Reader{``0,``1})">
+ <summary>Lift a value of the underlying monad into its Kleisli form.</summary>
+</member>
+<member name="P:Rogz.Context.Kleisli.Reader.ReaderK.readerK">
+ <summary>Computation expression instance for the given type.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.bind``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.Reader.ReaderK{``1,``2,``3}},Rogz.Context.Kleisli.Reader.ReaderK{``1,``2,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.map2``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Kleisli.Reader.ReaderK{``3,``4,``0},Rogz.Context.Kleisli.Reader.ReaderK{``3,``4,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.unit``3(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.mapl``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Reader.ReaderK{``2,``1,``3})">
+ <summary>Map the first (i.e. 'left') argument contravariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.dimap``5(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Kleisli.Reader.ReaderK{``4,``1,``2})">
+ <summary>Map over both arguments at the same time, the first (i.e. 'left') contravariantly and the second (i.e. 'eight') covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.map``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.Reader.ReaderK{``2,``3,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.Reader.ReaderK.runKleisli``3(``0,Rogz.Context.Kleisli.Reader.ReaderK{``1,``0,``2})">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Reader.ReaderK.Workflow.ReaderKBuilder">
+ <summary>Computation expression for the given monadic type.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Reader.ReaderK.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.Reader.ReaderK">
+ <summary>Operations on ReaderK's.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.Zip``2(Rogz.Context.Kleisli.State.StateK{`0,`1,``0},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.SelectMany``2(System.Func{`2,Rogz.Context.Kleisli.State.StateK{`0,`1,``0}},System.Func{`2,``0,``1})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.SelectMany``1(System.Func{`2,Rogz.Context.Kleisli.State.StateK{`0,`1,``0}})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.Select``1(System.Func{`2,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.Join``2(Rogz.Context.Kleisli.State.StateK{`0,`1,``0},System.Func{`2,System.Int32},System.Func{``0,System.Int32},System.Func{`2,``0,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK`3.Invoke(`1)">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.State.StateK`3">
+ <summary>The State type lifted into Kleisli computations.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.fanin``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2},Rogz.Context.Kleisli.State.StateK{``0,``3,``2})">
+ <summary>Split the input between the two argument arrows and merge their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.merge``5(Rogz.Context.Kleisli.State.StateK{``0,``1,``2},Rogz.Context.Kleisli.State.StateK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows, retagging and merging their outputs.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.feedr``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedl'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.feedl``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2})">
+ <summary>Feed marked inputs through the argument arrow, passing the rest through unchanged to the output. A mirror of 'feedr'.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.fanout``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2},Rogz.Context.Kleisli.State.StateK{``0,``1,``3})">
+ <summary>Fanout: send the input to both argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.split``5(Rogz.Context.Kleisli.State.StateK{``0,``1,``2},Rogz.Context.Kleisli.State.StateK{``0,``3,``4})">
+ <summary>Split the input between the two argument arrows and combine their output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.second``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2})">
+ <summary>Send the second component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.first``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2})">
+ <summary>Send the first component of the input through the argument arrow, and copy the rest unchanged to the output.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.arr``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+ <summary>Lift a function to an arrow.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.compose``4(Rogz.Context.Kleisli.State.StateK{``0,``1,``2},Rogz.Context.Kleisli.State.StateK{``0,``3,``1})">
+ <summary>Compose two members of a category together.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.identity``2">
+ <summary>Identity element of a category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.bindM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.State.StateK{``1,``2,``3}},Rogz.Context.Data.State.State{``1,``0})">
+ <summary>Acts as a monadic bind on the Kleisli type using the value(s) from the underlying monad.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.mapM``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Data.State.State{``1,``2}},Rogz.Context.Kleisli.State.StateK{``1,``3,``0})">
+ <summary>Map a monad producing function across an existing monad in its own Kleisli category.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.hoist``4(Microsoft.FSharp.Core.FSharpFunc{Rogz.Context.Data.State.State{``0,``1},Rogz.Context.Data.State.State{``0,``2}},Rogz.Context.Kleisli.State.StateK{``0,``3,``1})">
+ <summary>Lift a monad momorphism of the base monad into its Kleisli form.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.lift``3(Rogz.Context.Data.State.State{``0,``1})">
+ <summary>Lift a value of the underlying monad into its Kleisli form.</summary>
+</member>
+<member name="P:Rogz.Context.Kleisli.State.StateK.stateK">
+ <summary>Computation expression instance for the given type.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.bind``4(Microsoft.FSharp.Core.FSharpFunc{``0,Rogz.Context.Kleisli.State.StateK{``1,``2,``3}},Rogz.Context.Kleisli.State.StateK{``1,``2,``0})">
+ <summary>Sequentially compose two contexts, passing any value produced by the first as an argument to the second.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.map2``5(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},Rogz.Context.Kleisli.State.StateK{``3,``4,``0},Rogz.Context.Kleisli.State.StateK{``3,``4,``1})">
+ <summary>Lift a binary function onto contexts.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.unit``3(``0)">
+ <summary>Lift a value into a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.mapl``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.State.StateK{``2,``1,``3})">
+ <summary>Map the first (i.e. 'left') argument contravariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.dimap``5(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,``3},Rogz.Context.Kleisli.State.StateK{``4,``1,``2})">
+ <summary>Map over both arguments at the same time, the first (i.e. 'left') contravariantly and the second (i.e. 'sight') covariantly.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.map``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Rogz.Context.Kleisli.State.StateK{``2,``3,``0})">
+ <summary>Lift a function onto a context.</summary>
+</member>
+<member name="M:Rogz.Context.Kleisli.State.StateK.runKleisli``3(``0,Rogz.Context.Kleisli.State.StateK{``1,``0,``2})">
+ <summary>Run the function with the supplied input.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.State.StateK.Workflow.StateKBuilder">
+ <summary>Computation expression for the given monadic type.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.State.StateK.Workflow">
+ <summary>Computation expression / monadic-workflow type and operations for the given context.</summary>
+</member>
+<member name="T:Rogz.Context.Kleisli.State.StateK">
+ <summary>Operations on StateK's.</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Context-Kleisli", "Context-Kleisli\Context-Kleisli.fsproj", "{ACD12A83-E15F-4557-BC54-1040199C89CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACD12A83-E15F-4557-BC54-1040199C89CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD12A83-E15F-4557-BC54-1040199C89CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD12A83-E15F-4557-BC54-1040199C89CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD12A83-E15F-4557-BC54-1040199C89CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7799FC74-BD3D-4D21-AD26-F5F10ADE70FE}
+	EndGlobalSection
+EndGlobal
